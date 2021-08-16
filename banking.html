@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking || Baap er Bank</title>
+
+    <!-- tailwind css -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        /* chrome, safari, edge, opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* mozila  */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+
+<body>
+
+    <head class="w-3/4 mx-auto">
+        <h1 class="text-6xl text-center mt-16">Welcome to <span class="font-bold text-yellow-700">Baap er Bank</span>!!!
+        </h1>
+    </head>
+
+    <main class="w-3/4 mx-auto">
+        <section class="mt-16">
+            <div class="grid gap-4 grid-cols-3">
+
+
+                <div class="p-8 px-10 bg-pink-500 rounded-xl">
+                    <h3 class="text-xl text-white">Deposit</h4>
+                        <h4 class="text-4xl text-white">$ <span id="deposit" class="font-medium">00.00</span></h4>
+                </div>
+
+
+                <div class="p-8 px-10 bg-yellow-500 rounded-xl">
+                    <h3 class="text-xl text-white">Withdraw</h4>
+                        <h4 class="text-4xl text-white">$ <span id="withdraw" class="font-medium">00.00</span></h4>
+                </div>
+
+
+                <div class="p-8 px-10 bg-green-500 rounded-xl">
+                    <h3 class="text-xl text-white">Balance</h4>
+                        <h4 class="text-4xl text-white">$ <span id="balance" class="font-medium">1500.00</span></h4>
+                </div>
+
+
+            </div>
+        </section>
+        <section class="mt-16">
+            <div class="grid grid-cols-2 gap-4">
+
+
+                <!-- Deposit -->
+                <div class="bg-gray-300 p-4 rounded">
+                    <h4 class="mb-2 text-xl">Deposit</h4>
+
+                    <input required class="block my-4 p-1 w-full rounded" type="number" min="0" name=""
+                        placeholder="Deposit value" id="depositValue">
+
+                    <input id="depositBtn" class="px-4 py-1 rounded bg-yellow-600 cursor-pointer text-white font-bold"
+                        type="submit" value="Deposit">
+                </div>
+
+
+                <!-- withdraw -->
+                <div class="bg-gray-300 p-4 rounded">
+                    <h4 class="mb-2 text-xl">Withdraw</h4>
+
+                    <input required class="block my-4 p-1 w-full rounded" type="number" min="0" name=""
+                        placeholder="Withdraw value" id="withdrawValue">
+
+                    <input id="withdrawBtn" class="px-4 py-1 rounded bg-yellow-600 cursor-pointer text-white font-bold"
+                        type="submit" value="Withdraw">
+                </div>
+
+
+            </div>
+        </section>
+    </main>
+    <script src="js/banking.js"></script>
+</body>
+
+</html>
