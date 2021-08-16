@@ -8,6 +8,24 @@ function getInputValue(inputId) {
     return depositInputValue;
 }
 
+function updateTotalField(totalFieldId, Amount) {
+    // debugger;
+    //get token value totalFieldId
+    const getAmount = document.getElementById(totalFieldId);
+    const depositAmountFloat = parseFloat(getAmount.innerText);
+
+    getAmount.innerText = depositAmountFloat + Amount;
+
+}
+
+function updateBalance(value) {
+    // get main Balance value
+    const getBalance = document.getElementById("balance");
+    const balanceValue = parseFloat(getBalance.innerText);
+
+    getBalance.innerText = value + balanceValue
+
+}
 
 
 //Deposit
@@ -19,17 +37,23 @@ document.getElementById("depositBtn").addEventListener("click", function () {
     const depositInputValue = getInputValue("depositValue");
 
 
+    /* 
+        //get token value Deposit
+        const getDeposit = document.getElementById("deposit");
+        const depositAmount = parseFloat(getDeposit.innerText); */
+    /* 
+        // get main Balance value
+        const getBalance = document.getElementById("balance");
+        const balanceValue = parseFloat(getBalance.innerText);
+     */
 
-    //get token value Deposit
-    const getDeposit = document.getElementById("deposit");
-    const depositAmount = parseFloat(getDeposit.innerText);
+    updateTotalField("deposit", depositInputValue);
 
-    // get main Balance value
-    const getBalance = document.getElementById("balance");
-    const balanceValue = parseFloat(getBalance.innerText);
 
-    getDeposit.innerText = depositInputValue + depositAmount;
-    getBalance.innerText = depositInputValue + balanceValue
+
+    // getDeposit.innerText = depositInputValue + depositAmount;
+    // getBalance.innerText = depositInputValue + balanceValue
+    updateBalance(depositInputValue);
 
 
     /* depositInput.value = ""; */
@@ -43,10 +67,10 @@ document.getElementById("withdrawBtn").addEventListener("click", function () {
     const withdrawAmountFloat = parseFloat(withdrawElement.value); */
     const withdrawAmountFloat = getInputValue("withdrawValue");
 
-    //get toke value of withdraw
-    const withdrawTokenElement = document.getElementById("withdraw");
-    const withdrawTokenFloat = parseFloat(withdrawTokenElement.innerText);
-
+    /*     //get toke value of withdraw
+        const withdrawTokenElement = document.getElementById("withdraw");
+        const withdrawTokenFloat = parseFloat(withdrawTokenElement.innerText);
+     */
     // get main Balance value
     const getBalanceElement = document.getElementById("balance");
     const balanceValueFloat = parseFloat(getBalanceElement.innerText);
@@ -57,9 +81,12 @@ document.getElementById("withdrawBtn").addEventListener("click", function () {
     }
     else {
 
-        withdrawTokenElement.innerText = withdrawAmountFloat + withdrawTokenFloat;
+        /* withdrawTokenElement.innerText = withdrawAmountFloat + withdrawTokenFloat; */
+        updateTotalField("withdraw", withdrawAmountFloat);
+
 
         getBalanceElement.innerText = balanceValueFloat - withdrawAmountFloat;
+
     }
 
     /*  //reset withdrawElement
