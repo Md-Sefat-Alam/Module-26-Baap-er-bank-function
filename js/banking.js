@@ -18,12 +18,17 @@ function updateTotalField(totalFieldId, Amount) {
 
 }
 
-function updateBalance(value) {
+function updateBalance(value, isAdd) {
     // get main Balance value
     const getBalance = document.getElementById("balance");
     const balanceValue = parseFloat(getBalance.innerText);
 
-    getBalance.innerText = value + balanceValue
+    if (isAdd == true) {
+        getBalance.innerText = balanceValue + value;
+    }
+    else {
+        getBalance.innerText = balanceValue - value;
+    }
 
 }
 
@@ -33,9 +38,6 @@ document.getElementById("depositBtn").addEventListener("click", function () {
     /*  //input field get depositValue
      const depositInput = document.getElementById("");
      const depositInputValue = parseFloat(depositInput.value); */
-
-    const depositInputValue = getInputValue("depositValue");
-
 
     /* 
         //get token value Deposit
@@ -47,13 +49,12 @@ document.getElementById("depositBtn").addEventListener("click", function () {
         const balanceValue = parseFloat(getBalance.innerText);
      */
 
-    updateTotalField("deposit", depositInputValue);
-
-
-
     // getDeposit.innerText = depositInputValue + depositAmount;
     // getBalance.innerText = depositInputValue + balanceValue
-    updateBalance(depositInputValue);
+
+    const depositInputValue = getInputValue("depositValue");
+    updateTotalField("deposit", depositInputValue);
+    updateBalance(depositInputValue, true);
 
 
     /* depositInput.value = ""; */
@@ -65,29 +66,34 @@ document.getElementById("withdrawBtn").addEventListener("click", function () {
     //get input field value of withdrawValue
     const withdrawElement = document.getElementById("withdrawValue");
     const withdrawAmountFloat = parseFloat(withdrawElement.value); */
-    const withdrawAmountFloat = getInputValue("withdrawValue");
 
     /*     //get toke value of withdraw
         const withdrawTokenElement = document.getElementById("withdraw");
         const withdrawTokenFloat = parseFloat(withdrawTokenElement.innerText);
      */
-    // get main Balance value
-    const getBalanceElement = document.getElementById("balance");
-    const balanceValueFloat = parseFloat(getBalanceElement.innerText);
+    /*     // get main Balance value
+        const getBalanceElement = document.getElementById("balance");
+        const balanceValueFloat = parseFloat(getBalanceElement.innerText);
+      */
 
-    //only change depositAmount greater than balanceValue
-    if (withdrawAmountFloat > balanceValueFloat) {
-        alert("Invalid Input")
-    }
-    else {
+    /*     //only change depositAmount greater than balanceValue
+        if (withdrawAmountFloat > balanceValueFloat) {
+            alert("Invalid Input")
+        }
+        else {
+    
+            withdrawTokenElement.innerText = withdrawAmountFloat + withdrawTokenFloat;
+            
+    
+    
+            getBalanceElement.innerText = balanceValueFloat - withdrawAmountFloat;
+    
+        } */
 
-        /* withdrawTokenElement.innerText = withdrawAmountFloat + withdrawTokenFloat; */
-        updateTotalField("withdraw", withdrawAmountFloat);
 
-
-        getBalanceElement.innerText = balanceValueFloat - withdrawAmountFloat;
-
-    }
+    const withdrawAmountFloat = getInputValue("withdrawValue");
+    updateTotalField("withdraw", withdrawAmountFloat);
+    updateBalance(withdrawAmountFloat, false)
 
     /*  //reset withdrawElement
      withdrawElement.value = ""; */
